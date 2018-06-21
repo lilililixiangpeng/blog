@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/Afragments :: userhead">
+</head>
+    <body class="error-page">
+        <div class="container animated fadeInDown">
+            <h1 class="error-number offline-page">OFFLINE</h1>
+            <h1 class="text-center mb25">We are making important changes</h1>
+            <p class="text-center s24">Current progress:</p>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="progress" style="background: #fff;">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">30%</div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center s24 mt25">Meantime why not left us message</p>
+            <div class="social-buttons text-center mt10">
+                <a href="#" class="btn btn-success btn-alt btn-round btn-lg mr10"><i class="en-mail s24"></i></a>
+                <a href="#" class="btn btn-primary btn-alt btn-round btn-lg mr10"><i class="fa-facebook s24"></i></a>
+                <a href="#" class="btn btn-primary btn-alt btn-round btn-lg mr10"><i class="fa-twitter s24"></i></a>
+                <a href="#" class="btn btn-danger btn-alt btn-round btn-lg mr10"><i class="fa-google-plus s24"></i></a>
+                <a href="#" class="btn btn-info btn-alt btn-round btn-lg"><i class="fa-linkedin s24"></i></a>
+            </div>
+        </div>
+        <th:block th:replace="user/Afragments :: scripts">
+        </th:block>
+    </body>
+</html>

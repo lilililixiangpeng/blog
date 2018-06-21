@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.web.mapper.PostServiceMapper">
+
+    <resultMap id="post" type="demo.web.model.Post">
+        <id column="id" property="id"></id>
+        <result column="postname" property="postname"></result>
+        <result column="flag" property="flag" />
+        <result column="content" property="content" />
+        <result column="date" property="date" />
+        <result column="subject" property="subject" />
+    </resultMap>
+
+    <select id="FindAllPost" resultMap="post">
+        SELECT * FROM allpost
+    </select>
+
+    <!--这里的useGeneratedKeys和keyProperty两个插入成功后可以直接返回主键，然后直接getid()可以直接获得主键 -->
+    <insert id="SavePost" useGeneratedKeys="true" keyProperty="id" parameterType="demo.web.model.Post">
+        INSERT INTO allpost (postname,flag,content,date,subject) VALUES (#{postname},#{flag},#{content},#{date},#{subject})
+    </insert>
+    
+    
+    <resultMap id="getpost" type="demo.web.model.Post">
+        <id column="id" property="id"></id>
+        <result column="postname" property="postname"></result>
+        <result column="flag" property="flag" />
+        <result column="content" property="content" />
+        <result column="date" property="date" />
+        <result column="subject" property="subject" />
+    </resultMap>
+    
+    
+    <select id="GetPostbyId" parameterType="int" resultMap="getpost">
+        SELECT * FROM allpost WHERE id = #{id}
+    </select>
+
+
+    <insert id="SaveFilebyId" >
+        INSERT INTO postfile (id,filepath,filename) VALUES (#{id},#{path},#{filename})
+    </insert>
+    
+    <select id="GetFilebyID" parameterType="int" resultType="String">
+        SELECT filename FROM postfile WHERE id = #{id}
+    </select>
+    
+    <select id="GetFilepath" resultType="String">
+        SELECT filepath FROM postfile WHERE id = #{id} AND filename = #{filename}
+    </select>
+
+</mapper>

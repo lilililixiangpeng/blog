@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.web.mapper.AdminServiceMapper">
+
+    <resultMap id="Admin" type="demo.web.model.Admin">
+        <id column="aid" property="aid"></id>
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="phonenumber" property="phonenumber" />
+        <result column="email" property="email" />
+        <collection property="role" ofType="demo.web.model.Role">
+            <id column="rid" property="rid"></id>
+            <result column="role" property="role" />
+        </collection>
+    </resultMap>
+
+    <select id="SearchIdByName" resultType="int" parameterType="String">
+        SELECT aid FROM admin WHERE username = #{username}
+    </select>
+    
+    
+    <select id="SearchAdminById" resultMap="Admin" parameterType="int">
+        SELECT * FROM admin a, role r WHERE aid = #{aid} and rid in (SELECT role_id FROM role_user WHERE user_id = #{aid})
+    </select>
+
+    <select id="SearchEmailByName" resultType="String" parameterType="String">
+        SELECT email FROM admin WHERE username = #{username}
+    </select>
+    
+    <update id="UpdatePassword">
+        UPDATE admin a,user u SET a.password = #{password},u.password = #{password} WHERE a.username = #{username} AND u.username = #{username}
+    </update>
+</mapper>

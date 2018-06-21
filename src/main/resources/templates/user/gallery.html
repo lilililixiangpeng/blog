@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/Afragments :: userhead">
+</head>
+    <body>
+        <div th:replace="user/Afragments :: header"></div>
+        <div th:replace="user/Afragments :: sidebar"></div>
+        <div th:replace="user/Afragments :: right-sidebar"></div>
+
+        <!-- Start #content -->
+        <div id="content">
+            <!-- Start .content-wrapper -->
+            <div class="content-wrapper">
+                <div class="row">
+                    <!-- Start .row -->
+                    <!-- Start .page-header -->
+                    <div class="col-lg-12 heading">
+                        <h1 class="page-header"><i class="im-images"></i> Gallery</h1>
+                        <!-- Start .bredcrumb -->
+                        <ul id="crumb" class="breadcrumb">
+                        </ul>
+                        <!-- End .breadcrumb -->
+                        <!-- Start .option-buttons -->
+                        <div class="option-buttons">
+                            <div class="btn-toolbar" role="toolbar">
+                                <div class="btn-group">
+                                    <a id="clear-localstorage" class="btn tip" title="Reset panels position">
+                                        <i class="ec-refresh color-red s24"></i>
+                                    </a>
+                                </div>
+                                <div class="btn-group dropdown">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"><i class="br-grid s24"></i></a>
+                                    <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+                                        <div class="option-dropdown">
+                                            <div class="shortcut-button">
+                                                <a href="#">
+                                                    <i class="im-pie"></i>
+                                                    <span>Earning Stats</span>
+                                                </a>
+                                            </div>
+                                            <div class="shortcut-button">
+                                                <a href="#">
+                                                    <i class="ec-images color-dark"></i>
+                                                    <span>Gallery</span>
+                                                </a>
+                                            </div>
+                                            <div class="shortcut-button">
+                                                <a href="#">
+                                                    <i class="en-light-bulb color-orange"></i>
+                                                    <span>Fresh ideas</span>
+                                                </a>
+                                            </div>
+                                            <div class="shortcut-button">
+                                                <a href="#">
+                                                    <i class="ec-link color-blue"></i>
+                                                    <span>Links</span>
+                                                </a>
+                                            </div>
+                                            <div class="shortcut-button">
+                                                <a href="#">
+                                                    <i class="ec-support color-red"></i>
+                                                    <span>Support</span>
+                                                </a>
+                                            </div>
+                                            <div class="shortcut-button">
+                                                <a href="#">
+                                                    <i class="st-lock color-teal"></i>
+                                                    <span>Lock area</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group dropdown">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenu2"><i class="ec-pencil s24"></i></a> 
+                                    <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu2">
+                                        <div class="option-dropdown">
+                                            <div class="row">
+                                                <p class="col-lg-12">Quick post</p>
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="text" class="form-control" placeholder="Enter title">
+                                                        </div>
+                                                    </div>
+                                                    <!-- End .form-group  -->
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <textarea class="form-control wysiwyg" placeholder="Enter text"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End .form-group  -->
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="text" class="form-control tags1" placeholder="Enter tags">
+                                                        </div>
+                                                    </div>
+                                                    <!-- End .form-group  -->
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <button class="btn btn-default btn-xs">Save Draft</button>
+                                                            <button class="btn btn-success btn-xs pull-right">Publish</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End .form-group  -->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3"><i class="ec-help s24"></i></a>
+                                    <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu3">
+                                        <div class="option-dropdown">
+                                            <p>First time visitor ? <a href="#" id="app-tour" class="btn btn-success ml15">Take app tour</a> 
+                                            </p>
+                                            <hr>
+                                            <p>Or check the <a href="#" class="btn btn-danger ml15">FAQ</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .option-buttons -->
+                    </div>
+                    <!-- End .page-header -->
+                </div>
+                <!-- End .row -->
+                <div class="outlet">
+                    <!-- Start .outlet -->
+                    <!-- Page start here ( usual with .row ) -->
+                    <div class="row">
+                        <div class="gallery">
+                            <!-- start .GalleryController -->
+                            <div class="gallery-toolbar">
+                                <div class="col-lg-12">
+                                    <!-- col-lg-12 start here -->
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter="all">All</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".sea">Sea</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".city">City</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".nature">Nature</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".vegetables">Vegetables</button>
+                                    <span class="sort btn btn-primary btn-alt" data-sort="random">Random</span> 
+                                </div>
+                                <!-- col-lg-12 end here -->
+                            </div>
+                            <div class="gallery-inner">
+                                <!-- thymeleaf追加class方法 -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix" data-my-order="1" th:each="gallery : ${gallery}" th:classappend="${gallery.imgtype}">
+                                    <a href="#" class="thumbnail">
+                                        <img th:src="@{/get/gallery(path=${gallery.imgpath})}" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" th:href="@{/get/gallery(path=${gallery.imgpath})}"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" th:value="${gallery.imgpath}" onclick="downimg(this)" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" th:value="${gallery.imgpath}" onclick="deleteimg(this)" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- GalleryController end here -->
+                    </div>
+                    <!-- Page End here -->
+                </div>
+                <!-- End .outlet -->
+            </div>
+            <!-- End .content-wrapper -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- End #content -->
+
+
+
+
+        <!-- Javascripts -->
+        <!-- Load pace first -->
+        <script th:src="@{/assets/plugins/core/pace/pace.min.js}"></script>
+        <!-- Important javascript libs(put in all pages) -->
+        <script th:src="@{/assets/js/jquery-1.8.3.min.js}"></script>
+        <script>
+            window.jQuery || document.write('<script th:src="@{/assets/js/libs/jquery-2.1.1.min.js}">\x3C/script>')
+        </script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+            window.jQuery || document.write('<script th:src="@{/assets/js/libs/jquery-ui-1.10.4.min.js}">\x3C/script>')
+        </script>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" th:src="@{/assets/js/libs/excanvas.min.js}"></script>
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script type="text/javascript" th:src="@{/assets/js/libs/respond.min.js}"></script>
+        <![endif]-->
+        <!-- Bootstrap plugins -->
+        <script th:src="@{/assets/js/bootstrap/bootstrap.js}"></script>
+        <!-- Core plugins ( not remove ever) -->
+        <!-- Handle responsive view functions -->
+        <script th:src="@{/assets/js/jRespond.min.js}"></script>
+        <!-- Custom scroll for sidebars,tables and etc. -->
+        <script th:src="@{/assets/plugins/core/slimscroll/jquery.slimscroll.min.js}"></script>
+        <script th:src="@{/assets/plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js}"></script>
+        <!-- Resize text area in most pages -->
+        <script th:src="@{/assets/plugins/forms/autosize/jquery.autosize.js}"></script>
+        <!-- Proivde quick search for many widgets -->
+        <script th:src="@{/assets/plugins/core/quicksearch/jquery.quicksearch.js}"></script>
+        <!-- Bootbox confirm dialog for reset postion on panels -->
+        <script th:src="@{/assets/plugins/ui/bootbox/bootbox.js}"></script>
+        <!-- Other plugins ( load only nessesary plugins for every page) -->
+        <script th:src="@{/assets/plugins/charts/sparklines/jquery.sparkline.js}"></script>
+        <script th:src="@{/assets/plugins/charts/pie-chart/jquery.easy-pie-chart.js}"></script>
+        <script th:src="@{/assets/plugins/forms/icheck/jquery.icheck.js}"></script>
+        <script th:src="@{/assets/plugins/forms/tags/jquery.tagsinput.min.js}"></script>
+        <script th:src="@{/assets/plugins/forms/tinymce/tinymce.min.js}"></script>
+        <script th:src="@{/assets/plugins/misc/highlight/highlight.pack.js}"></script>
+        <script th:src="@{/assets/plugins/misc/countTo/jquery.countTo.js}"></script>
+        <script th:src="@{/assets/plugins/misc/gallery/jquery.magnific-popup.min.js}"></script>
+        <script th:src="@{/assets/plugins/misc/mixitup/jquery.mixitup.min.js}"></script>
+        <script th:src="@{/assets/js/jquery.sprFlat.js}"></script>
+        <script th:src="@{/assets/js/app.js}"></script>
+        <script th:src="@{/assets/js/pages/gallery.js}"></script>
+        <script th:src="@{/websocket/js/sockjs.min.js}"></script>
+        <script th:src="@{/websocket/js/stomp.min.js}"></script>
+        <script th:inline="javascript">
+            var friendname;
+            var username = [[${username}]];
+            var socket = new SockJS('/ws');
+            var stompClient = Stomp.over(socket);
+            var rsinner1 = $('#right-sidebar>.sidebar-inner');
+            stompClient.connect({}, onConnected);
+
+            function onConnected() {
+                // Subscribe to the Public Channel
+                //可以绑定多个接收通道
+                stompClient.subscribe('/user/queue/notifications', onMessageReceived);
+                //stompClient.subscribe('/channel/public', onMessageReceived);
+            }
+
+            function sendchatMessage() {
+                var chatMessage = {
+                    sender: username,
+                    content: $("#sendMsg").val(),
+                    senderto: friendname
+                };
+                stompClient.send("/app/chat.onetoone", {}, JSON.stringify(chatMessage));
+            }
+
+
+            function onMessageReceived(payload) {
+                var message = JSON.parse(payload.body);
+                rsinner1.animate({ scrollTop: rsinner1[0].scrollHeight }, 1000);
+                appendmessage(message);
+            }
+
+            function appendmessage (msg) {
+                var username = msg.sender;
+                $('.chat-box .chat-messages').append('<li class="chat-user"><p class="avatar"><img src="../getfriendimg?username='+ username +'"></p><p class="chat-name">'+msg.sender+' <span class="chat-time">'+ msg.time +'</span></p><span class="status online"><i class="en-dot"></i></span><p class="chat-txt">'+ msg.content +'</p></li>');
+            }
+
+            function getname(obj) {
+                var test = obj.href;
+                friendname = test.substr(27);
+                $("#userfalg").text(friendname);
+            }
+
+
+            function getCurrentTime() {
+                var date = new Date();//当前时间
+                var month = zeroFill(date.getMonth() + 1);//月
+                var day = zeroFill(date.getDate());//日
+                var hour = zeroFill(date.getHours());//时
+                var minute = zeroFill(date.getMinutes());//分
+                var second = zeroFill(date.getSeconds());//秒
+
+                //当前时间
+                var curTime =  month + "-" + day
+                    + " " + hour + ":" + minute + ":" + second;
+
+                return curTime;
+            }
+
+            function zeroFill(i){
+                if (i >= 0 && i <= 9) {
+                    return "0" + i;
+                } else {
+                    return i;
+                }
+            }
+        </script>
+        <script th:inline="javascript">
+            function downimg(obj) {
+                var imgpath = $(obj).attr("value");
+                window.location='/down/gallery?imgpath='+imgpath;
+            }
+
+            function deleteimg(obj) {
+                var imgpath = $(obj).attr("value");
+                window.location='/delete/garllery?imgpath='+imgpath;
+            }
+
+        </script>
+    </body>
+</html>
