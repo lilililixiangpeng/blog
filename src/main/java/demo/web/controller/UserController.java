@@ -82,7 +82,7 @@ public class UserController {
 
     @RequestMapping(value = "/date/save" , method = RequestMethod.POST)
     public String SaveUser(HttpServletRequest request,Model model){
-        String username = request.getParameter("username");
+        String username = request.getParameter("name");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         if (userService.IfAliveUser(username)){

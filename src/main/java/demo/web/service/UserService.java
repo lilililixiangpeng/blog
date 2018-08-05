@@ -21,8 +21,9 @@ public class UserService{
 
 
     public void SaveUser(User user) {
-        userServiceMapper.AddUserRole(SearchUserId(user.getUsername()));
         userServiceMapper.SaveUser(user);
+        userServiceMapper.AddUserRole(SearchUserId(user.getUsername()));
+
     }
 
     public String FindUser(String username) {

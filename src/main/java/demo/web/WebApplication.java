@@ -24,3 +24,4 @@ public class WebApplication extends WebMvcConfigurerAdapter {
 	}
 
 }
+
